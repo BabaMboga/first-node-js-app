@@ -5,6 +5,6 @@ function log(message) {
   console.log(message);
 }
 
-module.exports.log = log;
+module.exports = log;
 // module.exports.endPoint = url;
 // commented out because we want to keep the url private but as u can see one can export it using a different name than one initiated

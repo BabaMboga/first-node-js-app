@@ -12,4 +12,4 @@ sayHello('Little girl');
 // console.log(window)
 // It won't work because in node.js the window and document object don't exist like it does for js in browsers
 
-logger.log('message');
+logger('message');
