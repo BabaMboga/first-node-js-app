@@ -34,3 +34,16 @@ console.log('Total Memory: ' + totalMemory);
 
 console.log(`Total Memory: ${totalMemory}`)
 console.log(`Free Memory: ${freeMemory}`)
+
+// file system module begins here
+// it has both synchronous and asynchronous methods
+
+const fs = require('fs');
+
+const files = fs.readdirSync('./')
+console.log(files);
+
+fs.readdir('./', function(err, files) {
+    if (err) console.log('Error', err);
+    else console.log('Result', files);
+});
