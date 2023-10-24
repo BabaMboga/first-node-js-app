@@ -1,7 +1,15 @@
-const logger = require("./logger");
+const Logger = require("./logger");
 // how to import the exported items
 
-console.log(logger);
+const logger = new Logger();
+
+// event is raised in logger module
+logger.on('Logging', function(){
+    console.log('Listener 3 called');
+});
+
+
+console.log(Logger);
 
 function sayHello(name) {
   console.log("Hello " + name);
@@ -12,7 +20,7 @@ sayHello("Little girl");
 // console.log(window)
 // It won't work because in node.js the window and document object don't exist like it does for js in browsers
 
-logger("message");
+logger.log("message");
 
 // the path module begins here
 const path = require("path");
@@ -64,6 +72,10 @@ emitter.on('messageLogged', function(arg){ // e, eventArg
 emitter.addListener('messageLogged', function(){
     console.log('Listener 2 called');
 });
+
+
 // Raise an event
 // added event arguments
 emitter.emit('messageLogged', {id: 1, url: 'http://'});
+
+// extending event emitters

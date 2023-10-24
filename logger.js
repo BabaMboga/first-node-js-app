@@ -1,14 +1,23 @@
 console.log(__filename);
 console.log(__dirname);
 
-var url = "http:mylogger.io/log";
+const EventEmitter = require('events');
+// const emitter = new EventEmitter();
 
-function log(message) {
-  // Send an HTTP request
-  console.log(message);
+var url = "http:mylogger.io/log";
+class Logger extends EventEmitter {
+    log(message) {
+        // Send an HTTP request
+        console.log(message);
+      
+        this.emit('Logging', {id: 1, url: 'http://'}); // emitter rlistened in app module
+    }
+
 }
 
-module.exports = log;
+
+// module.exports = log;
+module.exports = Logger;
 // module.exports.endPoint = url;
 // commented out because we want to keep the url private but as u can see one can export it using a different name than one initiated
 
